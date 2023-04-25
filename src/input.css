@@ -45,6 +45,6 @@
   }
 
   .the-container {
-    @apply container w-full mx-auto px-5 border-red-500;
+    @apply container w-full mx-auto px-5;
   }
 }
