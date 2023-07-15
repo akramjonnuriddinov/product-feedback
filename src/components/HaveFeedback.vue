@@ -39,14 +39,13 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'HaveFeedback',
-  props: {
-    posts: {
-      type: Array,
-      required: true,
-    },
+<script setup>
+import { defineProps } from 'vue'
+
+defineProps({
+  posts: {
+    type: Array,
+    required: true,
   },
-}
+})
 </script>

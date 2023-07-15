@@ -1,12 +1,8 @@
 <template>
-  <div class="bg-board-bg rounded-10 max-w-255 pt-15 text-white p-6">
-    <h1 class="font-bold text-xl">Frontend Mentor</h1>
+  <div class="p-6 text-white bg-board-bg rounded-10 max-w-255 pt-15">
+    <h1 class="text-xl font-bold">Frontend Mentor</h1>
     <p class="font-medium">Feedback Board</p>
   </div>
 </template>
 
-<script>
-export default {
-  name: 'FeedbackBoard',
-}
-</script>
+<script setup></script>

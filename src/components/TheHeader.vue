@@ -1,6 +1,6 @@
 <template>
   <div
-    class="bg-indigo-950 text-white max-w-825 w-full py-5 px-6 rounded-10 flex items-center justify-between"
+    class="flex items-center justify-between w-full px-6 py-5 text-white bg-indigo-950 max-w-825 rounded-10"
   >
     <div class="flex items-center">
       <img
@@ -10,19 +10,12 @@
         height="24"
         alt=""
       />
-      <p class="mr-9 font-bold text-lg">6 Suggestions</p>
+      <p class="text-lg font-bold mr-9">6 Suggestions</p>
     </div>
     <primary-btn />
   </div>
 </template>
 
-<script>
+<script setup>
 import PrimaryBtn from './PrimaryBtn.vue'
-
-export default {
-  name: 'TheHeader',
-  components: {
-    PrimaryBtn,
-  },
-}
 </script>

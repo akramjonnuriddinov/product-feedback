@@ -1,6 +1,6 @@
 <template>
   <div>
-    <label class="relative text-gray-700 flex flex-col mb-5">
+    <label class="relative flex flex-col mb-5 text-gray-700">
       <span
         class="mb-1 text-sm font-medium"
         :class="{ 'text-red-700': error }"
@@ -33,16 +33,11 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'TheInput',
-  data() {
-    return {
-      error: true,
-      error_message: 'this is error message',
-      placeholder: '+998 (--) --- -- --',
-      title: 'Foydalanuvchi',
-    }
-  },
-}
+<script setup>
+import { ref } from 'vue'
+
+const error = ref(true)
+const error_message = ref('this is error message')
+const placeholder = ref('+998 (--) --- -- --')
+const title = ref('Foydalanuvchi')
 </script>
