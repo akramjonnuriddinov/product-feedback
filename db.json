@@ -11,6 +11,12 @@
       "detail": "Feed definition 22",
       "category": "",
       "id": 2
+    },
+    {
+      "title": "ts feed",
+      "detail": "integrate existing vue project to typescript 😎",
+      "category": "",
+      "id": 3
     }
   ]
 }
