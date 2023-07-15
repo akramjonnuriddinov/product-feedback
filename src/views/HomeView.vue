@@ -13,38 +13,27 @@
   </div>
 </template>
 
-<script>
+<script setup>
+import { ref, onMounted } from 'vue'
 import axios from 'axios'
 import FeedbackBoard from '@/components/FeedbackBoard.vue'
 import TheHeader from '@/components/TheHeader.vue'
 import NotFeedback from '@/components/NotFeedback.vue'
 import HaveFeedback from '@/components/HaveFeedback.vue'
 
-export default {
-  name: 'HomeView',
-  data() {
-    return {
-      posts: null,
-      posts_len: 0,
-    }
-  },
-  components: {
-    FeedbackBoard,
-    TheHeader,
-    NotFeedback,
-    HaveFeedback,
-  },
-  mounted() {
-    axios
-      .get('http://localhost:3000/posts')
-      .then((res) => {
-        this.posts = res.data
-        this.posts_len = this.posts.length
-        console.log(this.posts)
-      })
-      .catch((err) => {
-        console.error(err)
-      })
-  },
-}
+const posts = ref(null)
+const posts_len = ref(0)
+
+onMounted(() => {
+  axios
+    .get('http://localhost:3000/posts')
+    .then((res) => {
+      posts.value = res.data
+      posts_len.value = posts.value.length
+      console.log(posts.value)
+    })
+    .catch((err) => {
+      console.error(err)
+    })
+})
 </script>

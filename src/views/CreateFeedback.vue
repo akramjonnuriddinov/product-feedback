@@ -108,33 +108,29 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import postData from '@/api/post'
 import axios from 'axios'
-export default {
-  name: 'CreateFeedback',
-  data() {
-    return {
-      feeds: {
-        title: '',
-        detail: '',
-        category: '',
-      },
-    }
-  },
-  components: {},
-  methods: {
-    cancel() {
-      this.feeds.title = ''
-      this.feeds.detail = ''
-    },
-    addFeedback() {
-      console.log('submitted form')
-      console.log(postData)
-      axios.post('http://localhost:3000/posts', this.feeds)
-      this.cancel()
-      this.$router.push({ name: 'home' })
-    },
-  },
+import { reactive } from 'vue'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+
+const feeds = reactive({
+  title: '',
+  detail: '',
+  category: '',
+})
+
+const cancel = () => {
+  feeds.title = ''
+  feeds.detail = ''
+}
+const addFeedback = () => {
+  console.log('submitted form')
+  console.log(postData)
+  axios.post('http://localhost:3000/posts', feeds)
+  cancel()
+  router.push({ name: 'home' })
 }
 </script>

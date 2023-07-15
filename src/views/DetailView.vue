@@ -54,9 +54,4 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'DetailView',
-  props: {},
-}
-</script>
+<script setup></script>
