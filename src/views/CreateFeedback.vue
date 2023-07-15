@@ -38,7 +38,7 @@
             </label>
             <input
               type="text"
-              v-model="feeds.title"
+              v-model="newFeedback.title"
               id="title"
               class="block w-full p-4 text-gray-900 bg-gray-100 rounded-md sm:text-md focus:ring-blue-500 outline-indigo-900 focus:border-blue-500"
             />
@@ -79,7 +79,7 @@
               </p>
             </label>
             <textarea
-              v-model="feeds.detail"
+              v-model="newFeedback.detail"
               type="text"
               id="detail"
               class="block w-full p-4 text-gray-900 bg-gray-100 rounded-md min-h-96 sm:text-md outline-indigo-900"
@@ -89,12 +89,12 @@
           <div class="flex justify-end">
             <button
               type="button"
-              @click="cancel"
               class="px-6 py-3 mr-4 text-sm font-bold text-gray-100 bg-indigo-900 rounded-10"
             >
               Cancel
             </button>
             <button
+              @click="addFeedback"
               type="submit"
               class="px-6 py-3 text-sm font-bold text-gray-100 bg-primary rounded-10"
             >
@@ -108,29 +108,26 @@
   </div>
 </template>
 
-<script setup>
-import postData from '@/api/post'
-import axios from 'axios'
-import { reactive } from 'vue'
-import { useRouter } from 'vue-router'
+<script setup lang="ts">
+import { ref } from 'vue'
+import { useCounterStore } from '@/store'
+import type { NewFeedback } from '@/types/types'
+import { v4 as uuidv4 } from 'uuid'
 
-const router = useRouter()
+const store = useCounterStore()
 
-const feeds = reactive({
+const newFeedback = ref<NewFeedback>({
+  id: uuidv4(),
   title: '',
   detail: '',
   category: '',
 })
 
-const cancel = () => {
-  feeds.title = ''
-  feeds.detail = ''
-}
+const feeds = store.feeds as NewFeedback[]
+
 const addFeedback = () => {
-  console.log('submitted form')
-  console.log(postData)
-  axios.post('http://localhost:3000/posts', feeds)
-  cancel()
-  router.push({ name: 'home' })
+  feeds.push(newFeedback.value)
+  localStorage.setItem('feeds', JSON.stringify(feeds))
+  store.addFeedback()
 }
 </script>

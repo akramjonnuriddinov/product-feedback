@@ -1,13 +1,13 @@
 import { defineStore } from 'pinia'
+import router from '@/router/index'
 
 export const useCounterStore = defineStore('counter', {
-  state: () => ({ count: 0, name: 'Eduardo' }),
-  getters: {
-    doubleCount: (state) => state.count * 2,
-  },
+  state: () => ({
+    feeds: JSON.parse(localStorage.getItem('feeds') || '0') || []
+  }),
   actions: {
-    increment() {
-      this.count++
-    },
+    addFeedback(): void {
+      router.push({ name: 'home' })
+    }
   },
 })

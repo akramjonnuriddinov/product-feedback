@@ -14,26 +14,26 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
-import axios from 'axios'
+import { ref } from 'vue'
+// import axios from 'axios'
 import FeedbackBoard from '@/components/FeedbackBoard.vue'
 import TheHeader from '@/components/TheHeader.vue'
 import NotFeedback from '@/components/NotFeedback.vue'
 import HaveFeedback from '@/components/HaveFeedback.vue'
 
 const posts = ref(null)
-const posts_len = ref(0)
+const posts_len = ref(1)
 
-onMounted(() => {
-  axios
-    .get('http://localhost:3000/posts')
-    .then((res) => {
-      posts.value = res.data
-      posts_len.value = posts.value.length
-      console.log(posts.value)
-    })
-    .catch((err) => {
-      console.error(err)
-    })
-})
+// onMounted(() => {
+//   axios
+//   .get('http://localhost:3000/posts')
+//   .then((res) => {
+//     posts.value = res.data
+//     posts_len.value = posts.value.length
+//     console.log(posts.value)
+//   })
+//   .catch((err) => {
+//     console.error(err)
+//   })
+// })
 </script>

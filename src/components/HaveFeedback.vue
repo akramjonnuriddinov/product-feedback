@@ -1,13 +1,13 @@
 <template>
   <div
-    v-for="post in posts"
+    v-for="post in store.feeds"
     :key="post.id"
     class="flex items-start px-8 mb-5 bg-white py-7 rounded-10"
   >
     <div
       class="px-2 pt-4 pb-2 mr-10 text-sm font-bold text-indigo-900 bg-gray-50 rounded-10"
     >
-      112
+      12
     </div>
     <div class="flex flex-col items-start">
       <router-link
@@ -40,12 +40,8 @@
 </template>
 
 <script setup>
-import { defineProps } from 'vue'
+import { useCounterStore } from '@/store'
 
-defineProps({
-  posts: {
-    type: Array,
-    required: true,
-  },
-})
+const store = useCounterStore()
+console.log(store.id)
 </script>

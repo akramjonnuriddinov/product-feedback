@@ -5,7 +5,8 @@
 @layer base {
   @font-face {
     font-family: 'Jost';
-    src: url('@/assets/fonts/Jost-SemiBold.woff2') format('woff2'),
+    src:
+      url('@/assets/fonts/Jost-SemiBold.woff2') format('woff2'),
       url('@/assets/fonts/Jost-SemiBold.woff') format('woff');
     font-weight: 600;
     font-style: normal;
@@ -14,7 +15,8 @@
 
   @font-face {
     font-family: 'Jost';
-    src: url('@/assets/fonts/Jost-Regular.woff2') format('woff2'),
+    src:
+      url('@/assets/fonts/Jost-Regular.woff2') format('woff2'),
       url('@/assets/fonts/Jost-Regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
@@ -23,7 +25,8 @@
 
   @font-face {
     font-family: 'Jost';
-    src: url('@/assets/fonts/Jost-Bold.woff2') format('woff2'),
+    src:
+      url('@/assets/fonts/Jost-Bold.woff2') format('woff2'),
       url('@/assets/fonts/Jost-Bold.woff') format('woff');
     font-weight: bold;
     font-style: normal;
@@ -32,7 +35,8 @@
 
   @font-face {
     font-family: 'Jost';
-    src: url('@/assets/fonts/Jost-Medium.woff2') format('woff2'),
+    src:
+      url('@/assets/fonts/Jost-Medium.woff2') format('woff2'),
       url('@/assets/fonts/Jost-Medium.woff') format('woff');
     font-weight: 500;
     font-style: normal;
@@ -45,6 +49,6 @@
   }
 
   .the-container {
-    @apply container w-full mx-auto px-5;
+    @apply container w-full px-5 mx-auto;
   }
 }
