@@ -5,7 +5,7 @@
       <div class="w-full max-w-825">
         <the-header class="mb-6" />
         <div>
-          <have-feedback v-if="posts_len != 0" :posts="posts" />
+          <have-feedback v-if="store.feeds.length !== 0" />
           <not-feedback v-else />
         </div>
       </div>
@@ -14,26 +14,11 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
-// import axios from 'axios'
 import FeedbackBoard from '@/components/FeedbackBoard.vue'
 import TheHeader from '@/components/TheHeader.vue'
 import NotFeedback from '@/components/NotFeedback.vue'
 import HaveFeedback from '@/components/HaveFeedback.vue'
+import { useCounterStore } from '@/store'
 
-const posts = ref(null)
-const posts_len = ref(1)
-
-// onMounted(() => {
-//   axios
-//   .get('http://localhost:3000/posts')
-//   .then((res) => {
-//     posts.value = res.data
-//     posts_len.value = posts.value.length
-//     console.log(posts.value)
-//   })
-//   .catch((err) => {
-//     console.error(err)
-//   })
-// })
+const store = useCounterStore()
 </script>

@@ -24,16 +24,11 @@
       <p>{{ post.detail }}</p>
       <span
         class="text-blue-600 bg-blue-50 mt-3 rounded-10 flex items-center justify-center font-semibold px-4 py-1.5"
-        >Enhancement</span
+        >{{ post.category }}</span
       >
     </div>
     <div class="flex ml-auto">
-      <img
-        src="@/assets/images/svg/comment-icon.svg"
-        width="18"
-        height="16"
-        alt=""
-      />
+      <img src="@/assets/images/svg/comment-icon.svg" width="18" height="16" />
       <span class="ml-2 text-base font-bold text-indigo-900">2</span>
     </div>
   </div>
@@ -43,5 +38,4 @@
 import { useCounterStore } from '@/store'
 
 const store = useCounterStore()
-console.log(store.id)
 </script>

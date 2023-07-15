@@ -8,7 +8,6 @@
         src="@/assets/images/svg/back-icon.svg"
         width="8"
         height="4"
-        alt=""
         class="mr-4"
       />
       Go Back
@@ -54,15 +53,17 @@
               <p class="text-[#647196]">Choose a category for your feedback</p>
             </label>
             <select
+              v-model="newFeedback.category"
               id="categories"
               class="block w-full px-6 py-3 text-sm text-indigo-900 bg-gray-100 border border-gray-300 rounded-lg outline-indigo-900 focus:ring-blue-500 focus:border-blue-500"
             >
-              <option value="feature">Feature</option>
-              <option value="all">All</option>
-              <option value="ui">UI</option>
-              <option value="ux">UX</option>
-              <option value="enhancement">Enhancement</option>
-              <option value="bug">Bug</option>
+              <option
+                v-for="category in Category"
+                :key="category"
+                :value="category"
+              >
+                {{ category }}
+              </option>
             </select>
           </div>
           <div class="mb-6">
@@ -113,6 +114,7 @@ import { ref } from 'vue'
 import { useCounterStore } from '@/store'
 import type { NewFeedback } from '@/types/types'
 import { v4 as uuidv4 } from 'uuid'
+import { Category } from '@/types/constants'
 
 const store = useCounterStore()
 
@@ -120,13 +122,13 @@ const newFeedback = ref<NewFeedback>({
   id: uuidv4(),
   title: '',
   detail: '',
-  category: '',
+  category: 'All',
 })
 
 const feeds = store.feeds as NewFeedback[]
 
 const addFeedback = () => {
-  feeds.push(newFeedback.value)
+  feeds.unshift(newFeedback.value)
   localStorage.setItem('feeds', JSON.stringify(feeds))
   store.addFeedback()
 }
