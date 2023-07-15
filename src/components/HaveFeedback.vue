@@ -2,20 +2,26 @@
   <div
     v-for="post in posts"
     :key="post.id"
-    class="bg-white px-8 py-7 rounded-10 mb-5 flex items-start"
+    class="flex items-start px-8 mb-5 bg-white py-7 rounded-10"
   >
     <div
-      class="bg-gray-50 px-2 pt-4 pb-2 text-indigo-900 font-bold text-sm rounded-10 mr-10"
+      class="px-2 pt-4 pb-2 mr-10 text-sm font-bold text-indigo-900 bg-gray-50 rounded-10"
     >
       112
     </div>
     <div class="flex flex-col items-start">
-      <router-link :to="{ name: 'home' }">
-        <h3 class="text-indigo-900 font-bold text-lg mb-1">
-          {{ post.title }}
-        </h3>
-        <p>{{ post.detail }}</p>
+      <router-link
+        :to="{
+          name: 'detail',
+          params: {
+            id: post.id,
+          },
+        }"
+        class="mb-1 text-lg font-bold text-indigo-900"
+      >
+        {{ post.title }}
       </router-link>
+      <p>{{ post.detail }}</p>
       <span
         class="text-blue-600 bg-blue-50 mt-3 rounded-10 flex items-center justify-center font-semibold px-4 py-1.5"
         >Enhancement</span

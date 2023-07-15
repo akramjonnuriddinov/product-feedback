@@ -1,6 +1,6 @@
 <template>
-  <div class="py-24 the-container max-w-6xl">
-    <div class="flex justify-between items-start">
+  <div class="max-w-6xl py-24 the-container">
+    <div class="flex items-start justify-between">
       <feedback-board class="mr-5" />
       <div class="w-full max-w-825">
         <the-header class="mb-6" />

@@ -1,46 +1,16 @@
 {
   "posts": [
     {
-      "title": "nfsdkjnfdskjfsd",
-      "detail": "fsakdjfnskjanskj",
+      "title": "Feed 1",
+      "detail": "Feed definition",
       "category": "",
       "id": 1
     },
     {
-      "title": "Nimadir nimadir",
-      "detail": "NImadirlarrrrrr",
+      "title": "Feed 22",
+      "detail": "Feed definition 22",
       "category": "",
       "id": 2
-    },
-    {
-      "title": "test uchnun",
-      "detail": "fnasifdsanfiasnfsaklfmdsak;lfnsakjfnsak;nfsakjfnsakjlfnsdakjl",
-      "category": "",
-      "id": 3
-    },
-    {
-      "title": "123214142124",
-      "detail": "dasdsamdalk0",
-      "category": "",
-      "id": 4
-    },
-    {
-      "title": "comment 1",
-      "detail": "description 1",
-      "category": "",
-      "id": 5
-    },
-    {
-      "title": "comment 2",
-      "detail": "description 2",
-      "category": "",
-      "id": 6
-    },
-    {
-      "title": "dsaf,as ",
-      "detail": "dsasfdasfasd",
-      "category": "",
-      "id": 7
     }
   ]
 }
