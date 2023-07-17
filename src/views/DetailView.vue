@@ -26,7 +26,7 @@
         <div
           class="px-2 pt-4 pb-2 mr-10 text-sm font-bold text-indigo-900 bg-gray-50 rounded-10"
         >
-          112
+          12
         </div>
         <div class="flex flex-col items-start">
           <h2 class="mb-1 text-lg font-bold text-indigo-900">
@@ -35,7 +35,7 @@
           <p>{{ post.detail }}</p>
           <span
             class="text-blue-600 bg-blue-50 mt-3 rounded-10 flex items-center justify-center font-semibold px-4 py-1.5"
-            >Enhancement</span
+            >{{ post.category }}</span
           >
         </div>
         <div class="flex ml-auto">
