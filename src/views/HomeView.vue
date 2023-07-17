@@ -27,6 +27,7 @@ import FilterFeeds from '@/components/FilterFeeds.vue'
 const store = useCounterStore()
 
 const handleFilter = (Category: string) => {
-  store.feeds = store.feeds.filter((item: any) => item.category == Category)
+  const feeds = JSON.parse(localStorage.getItem('feeds') || '')
+  store.feeds = feeds.filter((item: any) => item.category == Category)
 }
 </script>

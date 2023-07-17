@@ -4,7 +4,6 @@
       <button
         tag="li"
         @click="handleFilter(index)"
-        :disabled="store.feeds.length == 0"
         v-for="(category, index) in Category"
         :key="category"
         :class="{ 'bg-dark-blue text-white': isActive[index] }"
@@ -19,9 +18,9 @@
 <script setup lang="ts">
 import { ref, defineEmits } from 'vue'
 import { Category } from '@/types/constants'
-import { useCounterStore } from '@/store'
+// import { useCounterStore } from '@/store'
 
-const store = useCounterStore()
+// const store = useCounterStore()
 
 const isActive = ref<Array<Boolean>>([])
 
@@ -31,6 +30,10 @@ const emit = defineEmits<{
 }>()
 
 const handleFilter = (index: any) => {
+  for (let i = 0; i < isActive.value.length; i++) {
+    isActive.value[i] = false
+  }
+
   isActive.value[index] = !isActive.value[index]
   emit('filter-feeds', Category[index])
 }
