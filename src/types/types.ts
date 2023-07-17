@@ -7,4 +7,4 @@ export type NewFeedback = {
   category: Category
 }
 
-type Category = typeof Category
+export type Category = typeof Category

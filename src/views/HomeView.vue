@@ -1,7 +1,10 @@
 <template>
   <div class="max-w-6xl py-24 the-container">
     <div class="flex items-start justify-between">
-      <feedback-board class="mr-5" />
+      <div class="mr-5">
+        <feedback-board class="mb-6" />
+        <filter-feeds @filter-feeds="handleFilter" />
+      </div>
       <div class="w-full max-w-825">
         <the-header class="mb-6" />
         <div>
@@ -13,12 +16,17 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
+import { useCounterStore } from '@/store'
 import FeedbackBoard from '@/components/FeedbackBoard.vue'
 import TheHeader from '@/components/TheHeader.vue'
 import NotFeedback from '@/components/NotFeedback.vue'
 import HaveFeedback from '@/components/HaveFeedback.vue'
-import { useCounterStore } from '@/store'
+import FilterFeeds from '@/components/FilterFeeds.vue'
 
 const store = useCounterStore()
+
+const handleFilter = (Category: string) => {
+  store.feeds = store.feeds.filter((item: any) => item.category == Category)
+}
 </script>

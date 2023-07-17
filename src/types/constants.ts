@@ -1,3 +1,3 @@
 export const Category = [
-  'Feature', 'All', 'UI', 'UX', 'Enhancement', 'Bug'
+  'All', 'Feature', 'UI', 'UX', 'Enhancement', 'Bug'
 ] as const

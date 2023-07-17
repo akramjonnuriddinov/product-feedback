@@ -7,12 +7,18 @@ export const theme = {
     },
     backgroundColor: {
       primary: '#AD1FEA',
+      'light-blue': '#F2F4FF',
+      'dark-blue': '#4661E6',
+    },
+    colors: {
+      'dark-sky': '#4661E6',
     },
     maxWidth: {
       255: '255px',
       825: '825px',
       410: '410px',
       540: '540px',
+      600: '600px',
     },
     minHeight: {
       96: '96px',

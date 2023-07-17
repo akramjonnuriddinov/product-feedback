@@ -72,5 +72,5 @@ store.feeds.forEach((item) => {
     localStorage.setItem('post', JSON.stringify(item))
   }
 })
-post.value = JSON.parse(localStorage.getItem('post'))
+post.value = JSON.parse(localStorage?.getItem('post'))
 </script>
