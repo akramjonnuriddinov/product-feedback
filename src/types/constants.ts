@@ -1,3 +1,8 @@
-export const Category = [
-  'All', 'Feature', 'UI', 'UX', 'Enhancement', 'Bug'
-] as const
+export enum Category {
+  ALL = 'All',
+  UI = 'UI',
+  FEATURE = 'Feature',
+  UX = 'UX',
+  ENHANCEMENT = 'Enhancement',
+  BUG = 'Bug'
+}

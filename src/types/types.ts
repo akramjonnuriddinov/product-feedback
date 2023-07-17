@@ -1,10 +1,8 @@
 import { Category } from "@/types/constants"
 
-export type NewFeedback = {
+export interface NewFeedback {
   id: string
   title: string
   detail: string
-  category: Category
+  category?: Category
 }
-
-export type Category = typeof Category

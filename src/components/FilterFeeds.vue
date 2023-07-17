@@ -3,10 +3,10 @@
     <ul class="flex flex-wrap gap-x-2 gap-y-4">
       <button
         tag="li"
-        @click="handleFilter(index)"
         v-for="(category, index) in Category"
+        @click="handleFilter(Category[index])"
         :key="category"
-        :class="{ 'bg-dark-blue text-white': isActive[index] }"
+        :class="{ 'bg-dark-blue text-white': activeCategory === category }"
         class="px-4 rounded-10 py-2.5 text-dark-sky bg-light-blue"
       >
         {{ category }}
@@ -18,23 +18,16 @@
 <script setup lang="ts">
 import { ref, defineEmits } from 'vue'
 import { Category } from '@/types/constants'
-// import { useCounterStore } from '@/store'
 
-// const store = useCounterStore()
-
-const isActive = ref<Array<Boolean>>([])
+const activeCategory = ref(Category.ALL)
 
 const emit = defineEmits<{
   // eslint-disable-next-line no-unused-vars
   (e: 'filter-feeds', category: string): void
 }>()
 
-const handleFilter = (index: any) => {
-  for (let i = 0; i < isActive.value.length; i++) {
-    isActive.value[i] = false
-  }
-
-  isActive.value[index] = !isActive.value[index]
-  emit('filter-feeds', Category[index])
+const handleFilter = (category: Category) => {
+  activeCategory.value = category
+  emit('filter-feeds', category)
 }
 </script>

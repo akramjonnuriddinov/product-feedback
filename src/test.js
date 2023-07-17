@@ -1,26 +1,14 @@
-let object1 = [
-  {
-    id: '3481fbbf-90c2-4490-a30a-3da6d49f38f9',
-    title: '12',
-    detail: '12',
-    category: 'Feature',
-  },
-  {
-    id: '3481fbbf-90c2-4490-a30a-3da6d49f38f9',
-    title: '12',
-    detail: '12',
-    category: 'Bug',
-  },
-  {
-    id: '3481fbbf-90c2-4490-a30a-3da6d49f38f9',
-    title: '12',
-    detail: '12',
-    category: 'Bug',
-  },
-]
+let myObject = {
+  name: 'John',
+  skillItem1: 4,
+  skillItem2: 7,
+  skillItem3: 2,
+  skillItem4: 1,
+}
 
-// console.log(Object.keys(object1))
-object1 = object1.filter((item) => item.category == 'Bug')
-console.log(object1)
+// Updates any numerical values that are more than or equal to 4, and changes them to 10:
+Object.keys(myObject).forEach((item) => {
+  myObject[item] = 10
+})
 
-// Expected output: Array ["a", "b", "c"]
+console.log(myObject)

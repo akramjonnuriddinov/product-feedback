@@ -122,7 +122,7 @@ const newFeedback = ref<NewFeedback>({
   id: uuidv4(),
   title: '',
   detail: '',
-  category: 'All',
+  category: Category.ALL,
 })
 
 const feeds = store.feeds as NewFeedback[]
