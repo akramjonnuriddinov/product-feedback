@@ -36,7 +36,7 @@
 </template>
 
 <script setup>
-import { useCounterStore } from '@/store'
+import { useCounterStore } from '@/store/store'
 import { ref } from 'vue'
 
 const store = useCounterStore()
@@ -48,3 +48,4 @@ const countViews = (index) => {
   store.views[index]++
 }
 </script>
+@/store/store

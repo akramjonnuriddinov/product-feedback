@@ -49,13 +49,20 @@
         </div>
       </div>
     </div>
+
+    <!-- ADD COMMENT -->
+    <have-comment />
+    <add-comment />
+    <!-- /ADD COMMENT -->
   </div>
 </template>
 
 <script setup>
-import { useCounterStore } from '@/store'
+import { useCounterStore } from '@/store/store'
 import { useRoute } from 'vue-router'
 import { computed, ref } from 'vue'
+import AddComment from '@/components/AddComment.vue'
+import HaveComment from '@/components/HaveComment.vue'
 
 const store = useCounterStore()
 

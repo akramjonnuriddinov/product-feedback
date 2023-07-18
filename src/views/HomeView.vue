@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useCounterStore } from '@/store'
+import { useCounterStore } from '@/store/store'
 import FeedbackBoard from '@/components/FeedbackBoard.vue'
 import TheHeader from '@/components/TheHeader.vue'
 import NotFeedback from '@/components/NotFeedback.vue'
@@ -10,7 +10,7 @@ import { Category } from '@/types/constants'
 const store = useCounterStore()
 
 const handleFilter = (category: string) => {
-  const feeds = JSON.parse(localStorage.getItem('feeds') || '')
+  const feeds = JSON.parse(localStorage.getItem('feeds') || '[]')
   store.feeds = feeds.filter(
     (item: any) => Category.ALL === category || item.category == category
   )
@@ -34,3 +34,4 @@ const handleFilter = (category: string) => {
     </div>
   </div>
 </template>
+@/store/store

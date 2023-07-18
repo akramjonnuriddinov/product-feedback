@@ -111,7 +111,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { useCounterStore } from '@/store'
+import { useCounterStore } from '@/store/store'
 import type { NewFeedback } from '@/types/types'
 import { v4 as uuidv4 } from 'uuid'
 import { Category } from '@/types/constants'
@@ -133,3 +133,4 @@ const addFeedback = () => {
   store.addFeedback()
 }
 </script>
+@/store/store

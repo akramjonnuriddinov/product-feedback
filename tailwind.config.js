@@ -8,7 +8,7 @@ export const theme = {
     backgroundColor: {
       primary: '#AD1FEA',
       'light-blue': '#F2F4FF',
-      'dark-blue': '#4661E6',
+      'primary-dark': '#4661E6',
     },
     colors: {
       'dark-sky': '#4661E6',
@@ -24,6 +24,7 @@ export const theme = {
       96: '96px',
     },
     padding: {
+      7.5: '34px',
       15: '60px',
     },
     margin: {

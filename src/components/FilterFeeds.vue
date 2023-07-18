@@ -6,7 +6,7 @@
         v-for="(category, index) in Category"
         @click="handleFilter(Category[index])"
         :key="category"
-        :class="{ 'bg-dark-blue text-white': activeCategory === category }"
+        :class="{ 'bg-primary-dark text-white': activeCategory === category }"
         class="px-4 rounded-10 py-2.5 text-dark-sky bg-light-blue"
       >
         {{ category }}
