@@ -1,10 +1,24 @@
+<script setup lang="ts">
+import { ref } from 'vue'
+import { useRoute } from 'vue-router'
+import { useCounterStore } from '@/store/store'
+import { generate } from '@/composables/random'
+
+const route = useRoute()
+const context = ref([]) as any
+const store = useCounterStore()
+
+context.value = store.comments.filter((item: any) => item.id == route.params.id)
+console.log(context.value, 'context')
+</script>
+
 <template>
   <div class="pt-6 pb-8 mb-6 pr-8 bg-white rounded-10 pl-7.5">
     <h2 class="w-full text-lg font-bold text-indigo-900 truncate max-w-600">
-      {{ store.comments.length }} Comments
+      {{ context.length }} Comments
     </h2>
     <div
-      v-for="(comment, index) in store.comments"
+      v-for="(comment, index) in context"
       :key="index"
       class="flex items-center pt-8 pb-8 border-b"
     >
@@ -18,10 +32,12 @@
       <div class="w-full">
         <div class="flex items-center justify-between w-full mb-4">
           <h3 class="flex flex-col text-sm">
-            <span class="font-bold text-indigo-900"> Elijah Moss </span>
-            <span>@hexagon.bestagon</span>
+            <span class="font-bold text-indigo-900">{{ generate() }}</span>
+            <span class="w-32 overflow-hidden whitespace-nowrap"
+              >@{{ generate() }}</span
+            >
           </h3>
-          <button>Reply</button>
+          <button class="font-semibold text-blue-600 rounded-10">Reply</button>
         </div>
         <p>
           {{ comment.description }}
@@ -30,16 +46,3 @@
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-import {} from 'vue'
-import { useRoute } from 'vue-router'
-import { useCounterStore } from '@/store/store'
-
-const route = useRoute()
-
-const store = useCounterStore()
-store.comments = store.comments.filter(
-  (item: any) => item.id == route.params.id
-)
-</script>

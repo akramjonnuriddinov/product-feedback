@@ -1,3 +1,7 @@
+<script setup>
+import PrimaryBtn from '@/components/PrimaryBtn.vue'
+</script>
+
 <template>
   <div class="flex flex-col items-center bg-white py-28 rounded-10">
     <img
@@ -17,7 +21,3 @@
     <primary-btn />
   </div>
 </template>
-
-<script setup>
-import PrimaryBtn from '@/components/PrimaryBtn.vue'
-</script>

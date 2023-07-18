@@ -1,3 +1,27 @@
+<script setup>
+import { useCounterStore } from '@/store/store'
+import { useRoute } from 'vue-router'
+import { computed, ref } from 'vue'
+import AddComment from '@/components/AddComment.vue'
+import HaveComment from '@/components/HaveComment.vue'
+
+const store = useCounterStore()
+const route = useRoute()
+
+const postId = computed(() => {
+  return route.params.id
+})
+
+const post = ref([])
+
+store.feeds.forEach((item) => {
+  if (item.id == postId.value) {
+    localStorage.setItem('post', JSON.stringify(item))
+  }
+})
+post.value = JSON.parse(localStorage?.getItem('post'))
+</script>
+
 <template>
   <div class="container py-20 the-container">
     <div class="flex items-center justify-between">
@@ -56,28 +80,3 @@
     <!-- /ADD COMMENT -->
   </div>
 </template>
-
-<script setup>
-import { useCounterStore } from '@/store/store'
-import { useRoute } from 'vue-router'
-import { computed, ref } from 'vue'
-import AddComment from '@/components/AddComment.vue'
-import HaveComment from '@/components/HaveComment.vue'
-
-const store = useCounterStore()
-
-const route = useRoute()
-
-const postId = computed(() => {
-  return route.params.id
-})
-
-const post = ref([])
-
-store.feeds.forEach((item) => {
-  if (item.id == postId.value) {
-    localStorage.setItem('post', JSON.stringify(item))
-  }
-})
-post.value = JSON.parse(localStorage?.getItem('post'))
-</script>

@@ -1,3 +1,7 @@
+<script setup>
+import PrimaryBtn from './PrimaryBtn.vue'
+</script>
+
 <template>
   <div
     class="flex items-center justify-between w-full px-6 py-5 text-white bg-indigo-950 max-w-825 rounded-10"
@@ -15,7 +19,3 @@
     <primary-btn />
   </div>
 </template>
-
-<script setup>
-import PrimaryBtn from './PrimaryBtn.vue'
-</script>

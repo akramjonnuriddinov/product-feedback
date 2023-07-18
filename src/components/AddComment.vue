@@ -1,3 +1,22 @@
+<script setup lang="ts">
+import { ref } from 'vue'
+import { useRoute } from 'vue-router'
+import { useCounterStore } from '@/store/store'
+
+const store = useCounterStore()
+const route = useRoute()
+console.log(store)
+
+const comment = ref('')
+// const comments = JSON.parse(localStorage.getItem('comments') || '[]')
+const comments = store.comments
+
+const postComment = () => {
+  comments.push({ id: route.params.id, description: comment.value })
+  localStorage.setItem('comments', JSON.stringify(comments))
+}
+</script>
+
 <template>
   <div class="pt-6 pb-8 pr-8 bg-white rounded-10 pl-7.5">
     <h2
@@ -25,22 +44,3 @@
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-import { ref } from 'vue'
-import { useRoute } from 'vue-router'
-
-const route = useRoute()
-
-const comment = ref('')
-
-const comments = JSON.parse(
-  localStorage.getItem('comments') || '[]'
-) as Array<Object>
-
-const postComment = () => {
-  comments.push({ id: route.params.id, description: comment.value })
-  console.log(comments)
-  localStorage.setItem('comments', JSON.stringify(comments))
-}
-</script>

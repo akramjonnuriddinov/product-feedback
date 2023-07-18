@@ -1,3 +1,17 @@
+<script setup>
+import { useCounterStore } from '@/store/store'
+import { ref } from 'vue'
+
+const store = useCounterStore()
+
+const views_count = ref(1)
+
+const countViews = (index) => {
+  views_count.value++
+  store.views[index]++
+}
+</script>
+
 <template>
   <div
     v-for="post in store.feeds"
@@ -34,18 +48,3 @@
     </div>
   </div>
 </template>
-
-<script setup>
-import { useCounterStore } from '@/store/store'
-import { ref } from 'vue'
-
-const store = useCounterStore()
-
-const views_count = ref(1)
-
-const countViews = (index) => {
-  views_count.value++
-  store.views[index]++
-}
-</script>
-@/store/store

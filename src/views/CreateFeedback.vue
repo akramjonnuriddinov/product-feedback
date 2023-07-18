@@ -1,3 +1,28 @@
+<script setup lang="ts">
+import { ref } from 'vue'
+import { useCounterStore } from '@/store/store'
+import type { NewFeedback } from '@/types/types'
+import { v4 as uuidv4 } from 'uuid'
+import { Category } from '@/types/constants'
+
+const store = useCounterStore()
+
+const newFeedback = ref<NewFeedback>({
+  id: uuidv4(),
+  title: '',
+  detail: '',
+  category: Category.ALL,
+})
+
+const feeds = store.feeds as NewFeedback[]
+
+const addFeedback = () => {
+  feeds.unshift(newFeedback.value)
+  localStorage.setItem('feeds', JSON.stringify(feeds))
+  store.passHome()
+}
+</script>
+
 <template>
   <div class="the-container max-w-540">
     <router-link
@@ -108,29 +133,3 @@
     <!-- CREATE NEW FEEDBACK -->
   </div>
 </template>
-
-<script setup lang="ts">
-import { ref } from 'vue'
-import { useCounterStore } from '@/store/store'
-import type { NewFeedback } from '@/types/types'
-import { v4 as uuidv4 } from 'uuid'
-import { Category } from '@/types/constants'
-
-const store = useCounterStore()
-
-const newFeedback = ref<NewFeedback>({
-  id: uuidv4(),
-  title: '',
-  detail: '',
-  category: Category.ALL,
-})
-
-const feeds = store.feeds as NewFeedback[]
-
-const addFeedback = () => {
-  feeds.unshift(newFeedback.value)
-  localStorage.setItem('feeds', JSON.stringify(feeds))
-  store.addFeedback()
-}
-</script>
-@/store/store
