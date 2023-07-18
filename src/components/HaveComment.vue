@@ -1,24 +1,23 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { useCounterStore } from '@/store/store'
 import { generate } from '@/composables/random'
 
 const route = useRoute()
-const context = ref([]) as any
 const store = useCounterStore()
-
-context.value = store.comments.filter((item: any) => item.id == route.params.id)
-console.log(context.value, 'context')
+const comments = computed(() =>
+  store.comments.filter((item: any) => item.id == route.params.id)
+)
 </script>
 
 <template>
   <div class="pt-6 pb-8 mb-6 pr-8 bg-white rounded-10 pl-7.5">
     <h2 class="w-full text-lg font-bold text-indigo-900 truncate max-w-600">
-      {{ context.length }} Comments
+      {{ comments.length }} Comments
     </h2>
     <div
-      v-for="(comment, index) in context"
+      v-for="(comment, index) in comments"
       :key="index"
       class="flex items-center pt-8 pb-8 border-b"
     >

@@ -23,7 +23,7 @@ post.value = JSON.parse(localStorage?.getItem('post'))
 </script>
 
 <template>
-  <div class="container py-20 the-container">
+  <div class="container py-20 the-container max-w-[825px]">
     <div class="flex items-center justify-between">
       <router-link
         class="flex items-center mb-16 text-sm font-bold text-purple-500"

@@ -24,7 +24,7 @@ const addFeedback = () => {
 </script>
 
 <template>
-  <div class="the-container max-w-540">
+  <div class="pt-20 the-container max-w-540">
     <router-link
       class="flex items-center mb-16 text-sm font-bold text-purple-500"
       :to="{ name: 'home' }"
@@ -114,6 +114,7 @@ const addFeedback = () => {
 
           <div class="flex justify-end">
             <button
+              @click="store.passHome()"
               type="button"
               class="px-6 py-3 mr-4 text-sm font-bold text-gray-100 bg-indigo-900 rounded-10"
             >

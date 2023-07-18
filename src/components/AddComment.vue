@@ -5,15 +5,14 @@ import { useCounterStore } from '@/store/store'
 
 const store = useCounterStore()
 const route = useRoute()
-console.log(store)
 
 const comment = ref('')
-// const comments = JSON.parse(localStorage.getItem('comments') || '[]')
 const comments = store.comments
 
 const postComment = () => {
   comments.push({ id: route.params.id, description: comment.value })
   localStorage.setItem('comments', JSON.stringify(comments))
+  comment.value = ''
 }
 </script>
 

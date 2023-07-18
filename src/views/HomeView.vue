@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import {} from 'vue'
 import { useCounterStore } from '@/store/store'
 import FeedbackBoard from '@/components/FeedbackBoard.vue'
 import TheHeader from '@/components/TheHeader.vue'
@@ -11,7 +12,7 @@ const store = useCounterStore()
 
 const handleFilter = (category: string) => {
   const feeds = JSON.parse(localStorage.getItem('feeds') || '[]')
-  store.feeds = feeds.filter(
+  store.comments = feeds.filter(
     (item: any) => Category.ALL === category || item.category == category
   )
 }
@@ -34,4 +35,3 @@ const handleFilter = (category: string) => {
     </div>
   </div>
 </template>
-@/store/store
