@@ -12,7 +12,7 @@ const store = useCounterStore()
 
 const handleFilter = (category: string) => {
   const feeds = JSON.parse(localStorage.getItem('feeds') || '[]')
-  store.comments = feeds.filter(
+  store.feeds = feeds.filter(
     (item: any) => Category.ALL === category || item.category == category
   )
 }

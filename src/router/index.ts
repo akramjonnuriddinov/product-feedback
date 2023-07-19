@@ -19,6 +19,11 @@ const routes = [
     name: 'createFeedback',
     component: CreateFeedback,
   },
+  {
+    path: '/editFeedback',
+    name: 'editFeedback',
+    component: () => import('@/views/EditFeedback.vue')
+  }
 ]
 
 const router = createRouter({

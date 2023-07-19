@@ -6,6 +6,7 @@ export const useCounterStore = defineStore('counter', {
     feeds: JSON.parse(localStorage.getItem('feeds') || '[]'),
     comments: JSON.parse(localStorage.getItem('comments') || '[]'),
     views: [],
+    currentId: '',
   }),
   actions: {
     passHome(): void {

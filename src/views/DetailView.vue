@@ -12,6 +12,8 @@ const postId = computed(() => {
   return route.params.id
 })
 
+store.currentId = route.params.id
+
 const post = ref([])
 
 store.feeds.forEach((item) => {
@@ -38,12 +40,12 @@ post.value = JSON.parse(localStorage?.getItem('post'))
         />
         Go Back
       </router-link>
-      <button
-        type="submit"
+      <router-link
+        :to="{ name: 'editFeedback' }"
         class="px-6 py-3 text-sm font-bold text-gray-100 bg-blue-600 rounded-10"
       >
         Edit Feedback
-      </button>
+      </router-link>
     </div>
     <div>
       <div class="flex items-start px-8 mb-5 bg-white py-7 rounded-10">
