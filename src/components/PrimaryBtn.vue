@@ -1,4 +1,8 @@
-<script setup></script>
+<script setup lang="ts">
+// import { useCounterStore } from '@/store/store';
+
+// const store = useCounterStore()
+</script>
 
 <template>
   <div>

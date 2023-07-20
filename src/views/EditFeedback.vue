@@ -10,7 +10,7 @@ const router = useRouter()
 const editData = reactive({
   title: '',
   detail: '',
-  category: Category.FEATURE,
+  category: Category.ALL,
 })
 
 const addFeedback = () => {

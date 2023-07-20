@@ -9,6 +9,8 @@ import FilterFeeds from '@/components/FilterFeeds.vue'
 import { Category } from '@/types/constants'
 
 const store = useCounterStore()
+store.setFeeds()
+console.log('feeds', store.feeds)
 
 const handleFilter = (category: string) => {
   const feeds = JSON.parse(localStorage.getItem('feeds') || '[]')

@@ -76,9 +76,7 @@ post.value = JSON.parse(localStorage?.getItem('post'))
       </div>
     </div>
 
-    <!-- ADD COMMENT -->
     <have-comment />
     <add-comment />
-    <!-- /ADD COMMENT -->
   </div>
 </template>

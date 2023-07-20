@@ -5,4 +5,5 @@ export interface NewFeedback {
   title: string
   detail: string
   category?: Category
+  comments?: Array<String>
 }

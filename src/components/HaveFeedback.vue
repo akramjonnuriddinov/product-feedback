@@ -1,15 +1,9 @@
-<script setup>
+<script setup lang="ts">
 import { useCounterStore } from '@/store/store'
-import { ref } from 'vue'
 
 const store = useCounterStore()
 
-const views_count = ref(1)
-
-const countViews = (index) => {
-  views_count.value++
-  store.views[index]++
-}
+console.log(store.feeds, 'feeds')
 </script>
 
 <template>
@@ -21,11 +15,10 @@ const countViews = (index) => {
     <div
       class="px-2 pt-4 pb-2 mr-10 text-sm font-bold text-indigo-900 bg-gray-50 rounded-10"
     >
-      12
+      0
     </div>
     <div class="flex flex-col items-start">
       <router-link
-        @click="countViews(store.views[id])"
         :to="{
           name: 'detail',
           params: {
@@ -44,7 +37,9 @@ const countViews = (index) => {
     </div>
     <div class="flex ml-auto">
       <img src="@/assets/images/svg/comment-icon.svg" width="18" height="16" />
-      <span class="ml-2 text-base font-bold text-indigo-900"> {{ 0 }}</span>
+      <span class="ml-2 text-base font-bold text-indigo-900">
+        {{ post.comments?.length }}</span
+      >
     </div>
   </div>
 </template>
