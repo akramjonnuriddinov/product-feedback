@@ -4,12 +4,21 @@ import { useRoute } from 'vue-router'
 import { useCounterStore } from '@/store/store'
 import { generate } from '@/composables/random'
 import NestedComment from './NestedComment.vue'
+import AddComment from '@/components/AddComment.vue'
 
 const route = useRoute()
 const store = useCounterStore()
 const comments = computed(() =>
   store.comments.filter((item: any) => item.id == route.params.id)
 )
+const showInput = (uniqueId: string) => {
+  console.log(uniqueId)
+  for (let i = 0; i < store.comments.length; i++) {
+    if (store.comments[i].uniqueId === uniqueId) {
+      store.comments[i].isOpen = !store.comments[i].isOpen
+    }
+  }
+}
 </script>
 
 <template>
@@ -37,13 +46,21 @@ const comments = computed(() =>
               >@{{ generate() }}</span
             >
           </h3>
-          <button class="font-semibold text-blue-600 rounded-10">Reply</button>
+          <button
+            @click="showInput(comment.uniqueId)"
+            class="font-semibold text-blue-600 rounded-10"
+          >
+            Reply
+          </button>
         </div>
         <p>
           {{ comment.description }}
         </p>
-        <nested-comment />
-        <nested-comment />
+        <nested-comment v-if="false" />
+        <add-comment
+          v-if="comment.isOpen"
+          placeholder="Type your nested comment here"
+        />
       </div>
     </div>
   </div>
