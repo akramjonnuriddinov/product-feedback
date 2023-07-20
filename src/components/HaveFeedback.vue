@@ -2,8 +2,6 @@
 import { useCounterStore } from '@/store/store'
 
 const store = useCounterStore()
-
-console.log(store.feeds, 'feeds')
 </script>
 
 <template>

@@ -3,6 +3,7 @@ import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { useCounterStore } from '@/store/store'
 import { generate } from '@/composables/random'
+import NestedComment from './NestedComment.vue'
 
 const route = useRoute()
 const store = useCounterStore()
@@ -41,6 +42,8 @@ const comments = computed(() =>
         <p>
           {{ comment.description }}
         </p>
+        <nested-comment />
+        <nested-comment />
       </div>
     </div>
   </div>

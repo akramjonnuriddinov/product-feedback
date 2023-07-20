@@ -8,14 +8,11 @@ const route = useRoute()
 
 const comment = ref('')
 const comments = store.comments
-const commentCount = store.commentCount
 
 const postComment = () => {
   comments.push({ id: route.params.id, description: comment.value })
   localStorage.setItem('comments', JSON.stringify(comments))
   comment.value = ''
-  commentCount.push(route.params.id)
-  localStorage.setItem('commentCount', JSON.stringify(commentCount))
 }
 </script>
 

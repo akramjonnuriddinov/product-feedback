@@ -6,4 +6,5 @@ export interface NewFeedback {
   detail: string
   category?: Category
   comments?: Array<String>
+  nestedComments?: Array<String>
 }
